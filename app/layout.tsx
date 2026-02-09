@@ -5,7 +5,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Miche - Moda Femenina',
+  title: process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Mi Catálogo',
   description: 'Tienda de ropa femenina con estilo único',
 };
 

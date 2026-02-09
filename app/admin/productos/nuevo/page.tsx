@@ -195,7 +195,7 @@ export default function NewProductPage() {
                 onChange={(e) => setForm({ ...form, category_id: e.target.value })}
                 className="w-full h-10 px-3 rounded-md border border-input bg-background"
               >
-                <option value="">Sin categoría</option>
+                <option value="none">Sin categoría</option>
                 {categories.map((cat) => (
                   <option key={cat.id} value={cat.id}>{cat.name}</option>
                 ))}

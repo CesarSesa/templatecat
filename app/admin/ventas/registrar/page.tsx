@@ -194,7 +194,7 @@ export default function RegisterSalePage() {
                   }}
                   className="w-full h-10 px-3 rounded-md border border-input bg-background"
                 >
-                  <option value="">Seleccionar...</option>
+                  <option value="none">Seleccionar...</option>
                   {products.map((p) => (
                     <option key={p.id} value={p.id}>{p.name}</option>
                   ))}
@@ -208,7 +208,7 @@ export default function RegisterSalePage() {
                   disabled={!selectedProduct}
                   className="w-full h-10 px-3 rounded-md border border-input bg-background"
                 >
-                  <option value="">Seleccionar...</option>
+                  <option value="none">Seleccionar...</option>
                   {selectedProductData?.product_variants?.map((v) => (
                     <option key={v.id} value={v.id}>
                       {v.size} / {v.color} (Stock: {v.stock_quantity})
