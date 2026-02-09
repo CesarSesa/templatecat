@@ -190,7 +190,7 @@ export function QuickNotes() {
       </CardHeader>
       <CardContent className="pt-4">
         <Textarea
-          placeholder="Escribe aquí tus ideas, pendientes o recordatorios...&#10;&#10;Ejemplo:&#10;- Llamar al cliente sobre la propiedad de Macul&#10;- Subir fotos nuevas del departamento&#10;- Revisar contrato antes de firmar"
+          placeholder="Escribe aquí tus ideas, pendientes o recordatorios...&#10;&#10;Ejemplo:&#10;- Revisar stock de productos destacados&#10;- Subir fotos nuevas de la colección&#10;- Actualizar precios antes del fin de semana"
           value={content}
           onChange={handleChange}
           className="min-h-[280px] resize-none bg-amber-50/20 border-amber-100 focus-visible:ring-amber-200"

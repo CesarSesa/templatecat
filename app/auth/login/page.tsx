@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Heart, Sparkles } from 'lucide-react';
+import { BusinessLogo } from '@/config/site';
 import Link from 'next/link';
 
 export default function LoginPage() {
@@ -48,7 +49,7 @@ export default function LoginPage() {
             </div>
           </div>
           <CardTitle className="text-2xl font-bold bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-transparent">
-            ✨ Bienvenida a Miche
+            <BusinessLogo />
           </CardTitle>
           <p className="text-purple-600/70 mt-2">Inicia sesión para administrar tu tienda</p>
         </CardHeader>

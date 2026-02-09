@@ -38,7 +38,7 @@ export function SidebarNav() {
         <Link href="/admin" className="flex items-center gap-2 text-2xl font-bold">
           <Heart className="w-6 h-6 text-pink-400 fill-pink-400" />
           <span className="bg-gradient-to-r from-white to-pink-200 bg-clip-text text-transparent">
-            Miche
+            <BusinessName />
           </span>
         </Link>
         <p className="text-purple-300 text-sm mt-1">Panel de Administración</p>

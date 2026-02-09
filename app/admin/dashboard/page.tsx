@@ -130,7 +130,7 @@ export default function DashboardPage() {
             <Heart className="w-8 h-8 text-pink-500 fill-pink-500" />
             Dashboard
           </h1>
-          <p className="text-purple-600/70 mt-1">Bienvenida a tu tienda Miche ✨</p>
+          <p className="text-purple-600/70 mt-1">Bienvenido a <BusinessName /> ✨</p>
         </div>
         <Button className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white">
           <ShoppingBag className="w-4 h-4 mr-2" />

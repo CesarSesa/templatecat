@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { ShoppingBag, Search } from 'lucide-react';
 import Image from 'next/image';
+import { BusinessName, Copyright } from '@/config/site';
 
 interface Product {
   id: string;
@@ -57,7 +58,7 @@ export default function StoreProductsPage() {
       <header className="border-b bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/tienda" className="text-xl font-bold">
-            Miche
+            <BusinessName />
           </Link>
           <div className="flex items-center gap-4">
             <div className="relative hidden sm:block">
@@ -74,7 +75,7 @@ export default function StoreProductsPage() {
             </Link>
             <Button variant="outline" size="sm">
               <ShoppingBag className="w-4 h-4 mr-2" />
-              Carrito
+              Catálogo
             </Button>
           </div>
         </div>
@@ -152,7 +153,7 @@ export default function StoreProductsPage() {
       {/* Footer */}
       <footer className="border-t py-8 bg-white mt-12">
         <div className="max-w-7xl mx-auto px-4 text-center text-muted-foreground">
-          <p>© 2026 Miche - Todos los derechos reservados</p>
+          <Copyright />
         </div>
       </footer>
     </div>

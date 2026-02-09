@@ -107,7 +107,7 @@ export default function ReferenciasPage() {
       <div>
         <h1 className="text-3xl font-bold mb-2">Archivos de Referencia</h1>
         <p className="text-muted-foreground">
-          Documentos, guías y archivos de referencia para el proceso de análisis de propiedades.
+          Documentos, guías y archivos de referencia para la gestión del negocio.
         </p>
       </div>
 
