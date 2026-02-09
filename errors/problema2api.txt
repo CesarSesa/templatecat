@@ -1,0 +1,21 @@
+Error analyzing with Kimi: Error: Kimi API error: {"error":{"message":"Invalid Authentication","type":"invalid_authentication_error"}}
+    at analyzePropertyWithKimi (lib\services\kimi-processor.ts:154:13)
+    at async POST (app\api\process-property\route.ts:97:18)
+  152 |     if (!response.ok) {
+  153 |       const error = await response.text();
+> 154 |       throw new Error(`Kimi API error: ${error}`);
+      |             ^
+  155 |     }
+  156 |
+  157 |     const data = await response.json();
+Kimi analysis failed: Error: Kimi API error: {"error":{"message":"Invalid Authentication","type":"invalid_authentication_error"}}
+    at analyzePropertyWithKimi (lib\services\kimi-processor.ts:154:13)
+    at async POST (app\api\process-property\route.ts:97:18)
+  152 |     if (!response.ok) {
+  153 |       const error = await response.text();
+> 154 |       throw new Error(`Kimi API error: ${error}`);
+      |             ^
+  155 |     }
+  156 |
+  157 |     const data = await response.json();
+ POST /api/process-property 500 in 11.8s (compile: 568ms, proxy.ts: 82ms, render: 11.2s)

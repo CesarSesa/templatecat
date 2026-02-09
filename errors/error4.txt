@@ -1,0 +1,46 @@
+Processing 17 images for property analysis
+Uploaded 17 images successfully
+KIMI_API_KEY loaded: sk-p4lyQvW...xoRRZ (51 chars)
+Kimi API Key check: Set (51 chars, starts with: sk-p4ly)
+Request body: {
+  "model": "kimi-k2.5",
+  "messages": [
+    {
+      "role": "system",
+      "content": "[system prompt hidden]"
+    },
+    {
+      "role": "user",
+      "content": "[18 items: text, image_url, image_url, image_url, image_url, image_url, image_url, image_url, image_url, image_url, image_url, image_url, image_url, image_url, image_url, image_url, image_url, image_url]"
+    }
+  ],
+  "temperature": 0.2,
+  "response_format": {
+    "type": "json_object"
+  },
+  "thinking": {
+    "type": "disabled"
+  }
+}
+Kimi API error response: {"error":{"message":"invalid temperature: only 0.6 is allowed for this model","type":"invalid_request_error"}}
+Error analyzing with Kimi K2.5: Error: Kimi API error: {"error":{"message":"invalid temperature: only 0.6 is allowed for this model","type":"invalid_request_error"}}
+    at analyzeWithVision (lib\services\kimi-processor.ts:190:13)
+    at async analyzePropertyWithKimi (lib\services\kimi-processor.ts:58:12)
+    at async POST (app\api\process-property\route.ts:119:18)
+  188 |       const errorText = await response.text();
+  189 |       console.error('Kimi API error response:', errorText);
+> 190 |       throw new Error(`Kimi API error: ${errorText}`);
+      |             ^
+  191 |     }
+  192 |
+  193 |     const data = await response.json();
+Vision analysis failed, trying text-only fallback...
+Using text-only fallback with moonshot-v1-8k...
+Kimi K2.5 analysis completed successfully
+Failed to create draft: {
+  code: '42501',
+  details: null,
+  hint: null,
+  message: 'new row violates row-level security policy for table "property_drafts"'
+}
+ POST /api/process-property 500 in 25.3s (compile: 115ms, proxy.ts: 101ms, render: 25.1s)

@@ -1,0 +1,128 @@
+Processing 18 images for property analysis
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+Error uploading image: Error [StorageApiError]: new row violates row-level security policy
+    at ignore-listed frames {
+  __isStorageError: true,
+  namespace: 'storage',
+  status: 400,
+  statusCode: '403'
+}
+ POST /api/process-property 500 in 9.3s (compile: 735ms, proxy.ts: 56ms, render: 8.5s)

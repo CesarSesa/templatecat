@@ -1,0 +1,4 @@
+# Ignorar datos reales, solo mantener ejemplos
+propiedades.json
+*.csv
+*.xlsx
