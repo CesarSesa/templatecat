@@ -40,3 +40,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Nadi - Archivos de memoria local (privados)
+memoria.local.md
+AGENTS.md
+HANDOFF.md
+AUDITORIA*.md
+.kimi-memory/
+
+# Scripts SQL de optimización (ejecutar manualmente en Supabase)
+supabase/optimize-performance.sql

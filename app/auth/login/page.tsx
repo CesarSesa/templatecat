@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Heart, Sparkles } from 'lucide-react';
-import { BusinessLogo } from '@/config/site';
+import { BusinessLogo } from '@/components/business-name';
 import Link from 'next/link';
 
 export default function LoginPage() {

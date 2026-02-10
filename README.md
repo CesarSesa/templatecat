@@ -1,10 +1,11 @@
 # 📦 CatalogKit - Template de Catálogo Next.js + Supabase
 
-> Template profesional para catálogos online con gestión de inventario. Desde tiendas de ropa hasta ferreterías, restaurantes o servicios.
+> Template profesional para catálogos online con gestión de inventario y sistema de planes (Basic/Pro/Premium). Desde tiendas de ropa hasta ferreterías, restaurantes o servicios.
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-green)
+![Build](https://img.shields.io/badge/build-passing-success)
 
 ---
 
@@ -20,14 +21,15 @@
 - **Autenticación** segura con Supabase Auth
 - **Dashboard** con métricas de negocio
 - **Gestión de productos** (CRUD completo)
-- **Control de inventario** con alertas de stock bajo
-- **Registro de ventas** (opcional)
-- **Registro de gastos** (opcional)
+- **Control de inventario** con alertas de stock bajo (Plan Pro+)
+- **Registro de ventas** (Plan Pro+)
+- **Registro de gastos** (Plan Premium)
+- **Sistema de planes**: Basic ($50) / Pro ($80) / Premium ($120)
 
 ### 🎨 Personalizable
 - Temas de colores via variables CSS
 - Logo y branding configurables
-- Campos de producto adaptables al tipo de negocio
+- Sistema de features modular (activar/desactivar por plan)
 
 ---
 
@@ -58,8 +60,8 @@
 
 ```bash
 # Clonar el template
-git clone https://github.com/tu-usuario/catalogkit.git
-cd catalogkit
+git clone https://github.com/CesarSesa/templatecat.git
+cd templatecat
 
 # Instalar dependencias
 npm install
@@ -68,7 +70,10 @@ npm install
 ### 2. Configurar Supabase
 
 1. Crear nuevo proyecto en Supabase
-2. Ejecutar las migraciones SQL: `supabase/migrations/001_initial_schema.sql`
+2. Ejecutar las migraciones SQL en orden:
+   - `supabase/migrations/001_initial_schema.sql`
+   - `supabase/migrations/002_functions.sql`
+   - `supabase/migrations/003_feature_system.sql`
 3. Configurar Storage bucket para imágenes
 4. Copiar credenciales para el siguiente paso
 
@@ -85,6 +90,7 @@ SUPABASE_SERVICE_ROLE_KEY=tu-service-role-key
 # App
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_BUSINESS_NAME="Tu Negocio"
+NEXT_PUBLIC_BUSINESS_TYPE="retail"  # retail | services | restaurant
 ```
 
 ### 4. Desarrollo local
@@ -94,6 +100,41 @@ npm run dev
 ```
 
 Visitar `http://localhost:3000`
+
+**Windows:** Usar el ejecutable `INICIAR-TEMPLATECAT.bat` en el escritorio
+
+---
+
+## 🎯 Sistema de Features (Planes)
+
+### Estructura de Seguridad
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  CAPA              │  IMPLEMENTACIÓN                        │
+├─────────────────────────────────────────────────────────────┤
+│  Cache SSR         │  React.cache() + Map keyed by userId   │
+│  Server Actions    │  Decorador @withFeature('key')         │
+│  API Routes        │  guardApiFeature() con validación      │
+│  UI (Sidebar)      │  FeatureGate component                 │
+│  Datos (RLS)       │  Supabase policies                     │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Planes Disponibles
+
+| Plan | Precio | Features |
+|------|--------|----------|
+| **Basic** | $50/mes | Catálogo, productos, categorías, imágenes |
+| **Pro** | $80/mes | + Inventario, ventas, reportes, clientes |
+| **Premium** | $120/mes | + Gastos, P&L, multi-usuario, API access |
+
+### Configurar Plan de Cliente
+
+```sql
+-- En Supabase SQL Editor
+UPDATE tenant_config SET plan = 'pro' WHERE id = '...';
+```
 
 ---
 
@@ -115,28 +156,12 @@ colors: {
 
 ### Configurar tipo de negocio
 
-En `types/business.ts`, ajustar la interfaz Product según necesites:
-
-```typescript
-// Para retail (tiendas)
-interface Product {
-  id: string;
-  name: string;
-  price: number;
-  stock: number;
-  category_id: string;
-  images: string[];
-}
-
-// Para servicios (sin stock)
-interface Service {
-  id: string;
-  name: string;
-  price: number;
-  duration?: number;
-  category_id: string;
-}
+En `.env.local`:
+```bash
+NEXT_PUBLIC_BUSINESS_TYPE="retail"  # retail | services | restaurant
 ```
+
+O modificar `types/product.ts` para ajustar campos.
 
 ---
 
@@ -151,9 +176,10 @@ app/
 ├── admin/
 │   ├── dashboard/           # Métricas y resumen
 │   ├── productos/           # CRUD productos
-│   ├── inventario/          # Control de stock
-│   ├── ventas/              # Registro de ventas
-│   ├── gastos/              # Registro de gastos
+│   ├── inventario/          # Control de stock (Pro+)
+│   ├── ventas/              # Registro de ventas (Pro+)
+│   ├── gastos/              # Registro de gastos (Premium)
+│   ├── upgrade/             # Página de planes
 │   └── components/          # Componentes admin
 ├── auth/
 │   ├── login/
@@ -162,9 +188,12 @@ app/
 
 components/
 ├── ui/                      # shadcn/ui components
-└── *                        # Componentes custom
+├── feature-provider.tsx     # React Context para features
+└── business-name.tsx        # Componentes de branding
 
 lib/
+├── features.ts              # Sistema de features (seguro)
+├── feature-guard.ts         # Guards y decoradores
 ├── supabase/                # Clientes Supabase
 └── utils.ts                 # Utilidades
 
@@ -182,8 +211,8 @@ types/
 ### Retail (Tiendas de productos)
 - ✅ Catálogo con fotos
 - ✅ Inventario por producto
-- ✅ Variantes (talla, color, etc.)
-- ✅ Control de stock
+- ✅ Variantes (talla, color, etc.) - Plan Pro+
+- ✅ Control de stock - Plan Pro+
 
 ### Servicios
 - ✅ Catálogo de servicios
@@ -199,25 +228,64 @@ types/
 
 ---
 
+## 🔒 Seguridad
+
+### Buenas prácticas implementadas
+
+1. **Cache SSR seguro**: Usa `React.cache()` con `tenantId` para evitar data leak entre usuarios
+2. **Server Actions protegidas**: Decorador `withFeature()` verifica permisos antes de ejecutar
+3. **RLS en Supabase**: Políticas de fila por tenant
+4. **No window.location**: Usar `NEXT_PUBLIC_SITE_URL` para redirects
+
+### Verificar seguridad antes de deploy
+
+```bash
+# 1. Build debe pasar sin errores
+npm run build
+
+# 2. Verificar no hay variables globales de cache
+rg "let.*Cache" lib/ --type ts
+
+# 3. Todas las Server Actions deben usar withFeature
+rg "'use server'" app/ --type ts -A 3
+```
+
+---
+
 ## 📝 Roadmap
 
+### Corto plazo
+- [x] Sistema de features modular (Basic/Pro/Premium)
+- [x] Cache SSR seguro con React.cache()
+- [ ] Integración pasarela de pago (Flow Chile)
+- [ ] Webhook para actualización automática de planes
+- [ ] Soft Lock (readonly) para downgrades
+
+### Medio plazo
 - [ ] Carrito de compras básico
-- [ ] Integración pasarelas de pago (MercadoPago, Stripe)
 - [ ] Sistema de cupones de descuento
 - [ ] Agenda/reservas para servicios
 - [ ] PWA (instalable en móviles)
+
+### Largo plazo
 - [ ] Multi-idioma
+- [ ] Dashboard Imperial (gestión multi-cliente)
+- [ ] API pública para integraciones
 
 ---
 
 ## 🐛 Issues Conocidos
 
-Ver `AUDITORIA_COMPLETA.md` para lista detallada de mejoras pendientes.
+Ver `memoria.local.md` para lista detallada.
 
-Principales:
-- Auth redirects: usar `NEXT_PUBLIC_SITE_URL`, no `window.location`
-- SelectItems: usar `value="all"`, no `value=""`
-- Memory leaks: agregar `URL.revokeObjectURL` en previews de imágenes
+**Solucionados (Feb 11, 2026):**
+- ✅ Cache SSR inseguro (variable global)
+- ✅ Build fallaba por encoding en config/site.ts
+- ✅ Imports de BusinessName desde config/site.ts
+
+**Pendientes:**
+- Integración con pasarela de pagos
+- Tests de concurrencia (User A + User B simultáneos)
 
 ---
 
@@ -240,10 +308,12 @@ MIT - Libre para uso personal y comercial.
 ## 💬 Soporte
 
 Para dudas o soporte, revisar:
+- Documentación local: `memoria.local.md`
 - Documentación de Next.js: https://nextjs.org/docs
 - Documentación de Supabase: https://supabase.com/docs
 - Issues de este repositorio
 
 ---
 
-**Hecho con ❤️ para pymes que necesitan presencia online sin complejidad.**
+**Hecho con ❤️ para pymes que necesitan presencia online sin complejidad.**  
+**Refactor de seguridad: Feb 11, 2026**

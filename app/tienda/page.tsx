@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ShoppingBag, Heart, Sparkles } from 'lucide-react';
 import Image from 'next/image';
-import { BusinessLogo, Copyright, siteConfig } from '@/config/site';
+import { BusinessLogo, Copyright } from '@/components/business-name';
+import { siteConfig } from '@/config/site';
 
 export default async function StorePage() {
   const supabase = await createClient();

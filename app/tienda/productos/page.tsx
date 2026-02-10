@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { ShoppingBag, Search } from 'lucide-react';
 import Image from 'next/image';
-import { BusinessName, Copyright } from '@/config/site';
+import { BusinessName, Copyright } from '@/components/business-name';
 
 interface Product {
   id: string;

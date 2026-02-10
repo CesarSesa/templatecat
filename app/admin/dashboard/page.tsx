@@ -16,6 +16,7 @@ import {
   Receipt
 } from 'lucide-react';
 import Link from 'next/link';
+import { BusinessName } from '@/components/business-name';
 
 interface DashboardStats {
   totalProducts: number;
