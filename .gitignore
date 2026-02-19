@@ -48,5 +48,18 @@ HANDOFF.md
 AUDITORIA*.md
 .kimi-memory/
 
+# Documentos de planificación y guías con información sensible
+PARA-MAÑANA.md
+PLAN_MICHE.md
+PLAN_TEMPLATE.md
+GENERAL-REPLICATION-GUIDE.md
+MOONSHOT-ENV-EXAMPLE.md
+PROYECTO-MICHE-GUIDE.md
+REFACTOR_CONSIDERACIONES.md
+
+# Ignorar todos los archivos .md excepto README.md
+*.md
+!README.md
+
 # Scripts SQL de optimización (ejecutar manualmente en Supabase)
 supabase/optimize-performance.sql
